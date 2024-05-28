@@ -9,15 +9,8 @@ function activate(e) {
     }
 }
 
-document.addEventListener('click', activate, false);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactButton = document.querySelector('.contact');
-    const container4 = document.querySelector('.container4');
-
-    contactButton.addEventListener('click', function() {
-        container4.scrollIntoView({ behavior: 'smooth' });
-    });
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', activate);
 });
 
 function openModal() {
@@ -28,21 +21,13 @@ function closeModal() {
     document.getElementById("myModal").style.display = "none";
 }
 
-window.onclick = function(event) {
-    if (event.target == document.getElementById("myModal")) {
-        document.getElementById("myModal").style.display = "none";
-    }
-}
+const marqueeImgs = document.querySelectorAll('.marquee-img');
 
-// Add mailto functionality
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    const mailtoLink = `mailto:emartorellv2223@politecnics.barcelona?subject=Contact%20Form&body=Nombre%3A%20${encodeURIComponent(name)}%0AEmail%3A%20${encodeURIComponent(email)}%0AMensaje%3A%20${encodeURIComponent(message)}`;
-
-    window.location.href = mailtoLink;
+marqueeImgs.forEach(img => {
+    img.addEventListener('click', () => {
+        console.log()
+        const container2 = document.querySelector('.container2');
+        const imgName = img.src.split('/').pop().split('.')[0];
+        container2.style.backgroundImage = `url(./img/codigo${img.src.split('/').pop()})`;
+    });
 });
