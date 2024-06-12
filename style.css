@@ -222,9 +222,19 @@ main {
 }
 
 
+.button{
+  position: absolute;
+  width: fit-content;
+  background-color: #8b233f86;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  color: #ae8f63;
+  border: 2px solid #ae8f63 ;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+}
 
-
-.content button {
+.content button  {
  
   width: fit-content;
   background-color: #8b233f86;
