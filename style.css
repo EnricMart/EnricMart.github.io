@@ -126,6 +126,7 @@ body {
   height: 50vh; 
   overflow-y: hidden;
   position: relative;
+  background-color: #848889;
 }
 
 .mis-proyectos h1 {
