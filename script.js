@@ -1,4 +1,37 @@
 const slider = document.querySelector('.slider');
+let isScrolling;
+
+window.addEventListener('scroll', function() {
+    window.clearTimeout(isScrolling);
+
+    isScrolling = setTimeout(function() {
+        lockClosestContainer();
+    }, 66);
+});
+
+function lockClosestContainer() {
+    const containers = document.querySelectorAll('.container');
+    const viewportHeight = window.innerHeight;
+    let closestContainer = null;
+    let minDistance = viewportHeight;
+
+    containers.forEach(container => {
+        const rect = container.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestContainer = container;
+        }
+    });
+
+    if (closestContainer) {
+        closestContainer.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
 
 function activate(e) {
     const items = document.querySelectorAll('.item');
