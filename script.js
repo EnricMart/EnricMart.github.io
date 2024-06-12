@@ -31,3 +31,7 @@ marqueeImgs.forEach(img => {
         container2.style.backgroundImage = `url(./img/codigo${img.src.split('/').pop()})`;
     });
 });
+
+document.querySelector('.contact').addEventListener('click',function() {
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+});
